@@ -37,9 +37,33 @@ class HashTable
       @data[hash_value].append([key, value])
     end
   end
+
+  def keys()
+    keys_array = []
+    0.upto(@data.length) do |i|
+      if !@data[i].nil?
+        keys_array.push(@data[i][0][0])
+      end
+    end
+    keys_array
+  end
+
+  def values()
+    values_array = []
+    0.upto(@data.length) do |i|
+      if !@data[i].nil?
+        values_array.push(@data[i][0][1])
+      end
+    end
+    values_array
+  end
 end
 
 new_hash = HashTable.new(5)
 new_hash.set('grapes', 1000)
+new_hash.set('oranges', 67)
+new_hash.set('pears', 345)
+new_hash.set('apples', 100)
 p new_hash.get('grapes')
-p new_hash
+p new_hash.keys()
+p new_hash.values()
